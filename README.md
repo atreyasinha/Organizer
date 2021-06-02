@@ -1,2 +1,1 @@
-#CINS456: Project 1
-
+# All in one Diary, Budgeter, To-do.
