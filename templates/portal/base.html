@@ -1,0 +1,84 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+	<title>Organizer| Dashboard</title> {% include "dependencies.html" %} </head>
+
+<body>
+	<!-- Image and text -->
+	<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column"> {% include "nav.html" %}
+		<br>
+		<br>
+		<table class="text-center">
+			<tr>
+				<td>
+					<h1>Task</h1>
+					<br>
+					<canvas id="taskChart" width="310" height="310"></canvas> 
+					<br>
+					<a class="btn btn-lg btn-primary btn-block" href="{% url 'todo' %}">Tasks</a> </td>
+				<td>
+					<h1>Budget</h1>
+					<br>
+					<canvas id="budgetChart" width="295" height="295"></canvas> 
+					<br>
+					<a class="btn btn-lg btn-primary btn-block" href="{% url 'budget' %}">Budgets</a> </td>
+				<td>
+					<h1>Journal</h1>
+					<br>
+					<div style="width: 300px; height: 410px;">
+						<br>
+						<br>
+						<h2>Total Entry:</h2>
+						<h5>{{count}}</h5>
+						<br>
+						<br><br>
+						<h2>Last Entry:</h2>
+						<h5>{{date}}</h5> </div> <a class="btn btn-lg btn-primary btn-block" href="{% url 'journal' %}">Journals</a> </td>
+			</tr>
+		</table>
+		<script>
+      var ctx1 = document.getElementById('budgetChart').getContext('2d');
+      var budgetChart = new Chart(ctx1, {
+    // The type of chart we want to create
+    type: 'bar',
+
+    // The data for our dataset
+    data: {
+        labels: ['', 'Projected', 'Actual'],
+        datasets: [{
+			label: 'Budget',
+            backgroundColor: ['', 'rgb(255, 99, 132)', 'rgb(255, 99, 0)'],
+            data: [0, {{p}}, {{a}}]
+        }]
+    },
+});
+
+var ctx2 = document.getElementById('taskChart');
+      var taskChart = new Chart(ctx2, {
+    // The type of chart we want to create
+    type: 'pie',
+
+    // The data for our dataset
+    data: {
+        datasets: [{
+			backgroundColor: [
+			'rgb(0,250,154)',
+			'rgb(255,0,0)'
+			],
+            
+            data: [{{t}}, {{f}}]
+        }],
+        labels: [
+          'Done',
+          'Pending'
+        ]
+    },
+});
+
+		</script>
+	</div>
+</body>
+
+</html>

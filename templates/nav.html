@@ -1,0 +1,19 @@
+<br>
+<header class="masthead mb">
+  <div class="inner">
+    <h2 class="masthead-brand">Organizer</h2>
+    <nav class="nav nav-masthead justify-content-center">
+      <a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a>
+      <a class="nav-link" href="{% url 'todo' %}">Tasks</a>
+      <a class="nav-link" href="{% url 'budget' %}">Budget</a>
+      <a class="nav-link" href={% url 'journal' %}>Journal</a>
+      <a class="nav-link" href={% url 'apiOverview' %}>REST API</a>
+      <a class="nav-link" href={% url 'about' %}>About</a>
+      <a class="nav-link">Hello, {{request.user}}</a>
+      <a class="btn btn-outline-danger logout" href="{% url 'logoutUser' %}">Logout</a>
+
+    </nav>
+  </div>
+
+</header>
+<br><br>

@@ -1,0 +1,33 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <title>Organizer | Budget | Delete</title>
+  {% include "dependencies.html" %}
+</head>
+<body>
+  <!-- Image and text -->
+  <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    {% include "nav.html" %}
+
+    <h1 class="masthead-brand text-center">Delete Budget</h1>
+    <br>
+
+    <div class="jumbotron">
+      <h1 class="display-6">Are you sure you want to delete? {{budget.description}}</h1>
+      <hr class="my-4">
+      <p class="lead text-center">
+        <a class="btn btn-dark btn-lg" href="{% url 'budget' %}" role="button">Cancel</a>
+        <form class="text-center" action="" method="POST">
+          {% csrf_token %}
+          <input class="btn btn-danger btn-lg" type="submit" value="Delete">
+        </form>
+      </p>
+    </div>
+
+  </div>
+
+
+</body>
+</html>

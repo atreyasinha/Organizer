@@ -1,0 +1,52 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <title>Organizer</title>
+  {% include "dependencies.html" %}
+</head>
+<body>
+  <!-- Image and text -->
+  <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    {% include "nav.html" %}
+
+
+    <div class="row">
+      <div class="col-md">
+        <div class="card card-body">
+          <h1 class="masthead-brand text-center">Update Task</h1>
+
+    <form method="POST" action="">
+      <table class="table">
+        <tr>
+          <th>Description</th>
+          <th>Category</th>
+          <th>Completed</th>
+          <th>Action</th>
+          {% csrf_token %}
+
+          <tr>
+            <td>{{form.description}}</td>
+            <td>{{form.category}}</td>
+            <td>
+              {{form.completed}}
+            </td>
+            <td>      <input class="btn btn-outline-warning" type="submit" name="Update Task" value="Update">
+</td>
+          </tr>
+        </tr>
+</table>
+    </form>
+    <a class="btn btn-dark btn-lg" href="{% url 'todo' %}" role="button">Cancel</a>
+  </div>
+
+</div>
+
+</div>
+
+
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Organizer | Journal | My Journals</title>
+  {% include "dependencies.html" %}
+</head>
+<body>
+  <!-- Image and text -->
+  <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    {% include "nav.html" %}
+
+    <div class="row">
+      <div class="col-md">
+        <div class="card card-body">
+          <h1 class="masthead-brand text-center">Journal</h1>
+          <h1></h1>
+          <br>
+          <a class="btn btn-outline-primary" href="{% url 'addJournal' %}">Create a memory</a>
+          <h1></h1>
+          <h1></h1>
+          <table class="table">
+            <tr>
+              <th>Date</th>
+              <th>Description</th>
+              <th>Action</th>
+
+              {% for journal in journals %}
+              <tr>
+                <td>{{journal.created}}</td>
+                <td>
+                  <a href="{% url 'showJournal' journal.id %}" target="_blank">{{journal.description}}</a>
+                  </td>
+                <td><a class="btn btn-outline-info" href="{% url 'updateJournal' journal.id %}">Edit</a>      <a class="btn btn-danger" href="{% url 'deleteJournal' journal.id %}">Delete</a></td>
+
+              </tr>
+              {% endfor %}
+            </tr>
+          </table>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+
+
+</body>
+</html>

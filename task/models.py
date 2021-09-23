@@ -2,23 +2,21 @@ from django.db import models
 from django.contrib.auth.models import User
 
 # Create your models here.
-
-class Budget(models.Model):
+class Task(models.Model):
+    """docstring forTask."""
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     description = models.CharField(max_length=200)
     CATEGORY = (
-        ('Food','Food'),
-        ('Clothing', 'Clothing'),
-        ('Housing','Housing'),
-        ('Education','Education'),
-        ('Entertainment','Entertainment'),
+        ('Home','Home'),
+        ('School', 'School'),
+        ('Work','Work'),
+        ('Self Improvement','Self Improvement'),
         ('Other','Other'),
     )
 
-    category = models.CharField(max_length=200,choices=CATEGORY, default='Education')
+    category = models.CharField(max_length=200,choices=CATEGORY, default='Work')
 
-    projected = models.IntegerField(default=0)
-    actual = models.IntegerField(default=0)
+    completed = models.BooleanField(default=False)
     created = models.DateTimeField(auto_now_add=True)
 
 

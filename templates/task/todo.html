@@ -1,0 +1,86 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Organizer</title>
+  {% include "dependencies.html" %}
+</head>
+<body>
+  <!-- Image and text -->
+  <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    {% include "nav.html" %}
+
+    <div class="row">
+  <div class="col-md">
+    <div class="card card-body">
+      <h1 class="masthead-brand text-center">Task</h1>
+
+      <table class="table">
+        <tr>
+          <th>Description</th>
+          <th>Category</th>
+          <th>Completed</th>
+          <th>Action</th>
+
+<form class="" method="POST" action="/todo/">
+  {% csrf_token %}
+          <tr>
+            <td>{{form.description}}</td>
+            <td>{{form.category}}</td>
+            <td></td>
+            <td><input class="btn btn-outline-primary" type="submit" name="Create Task" value="Add"></td>
+          </tr>
+
+        </form>
+
+
+
+
+
+          {% for task in tasks %}
+          <tr>
+            {% if task.completed == True %}
+              <td><strike>{{task.description}}</strike></td>
+              <td><strike>{{task.category}}</strike></td>
+              <td>
+                {{task.completed}}
+              </td>
+            {% else %}
+              <td>{{task.description}}</td>
+              <td>{{task.category}}</td>
+              <td>
+                {{task.completed}}
+              </td>
+            {% endif %}
+            <td><a class="btn btn-outline-info" href="{% url 'update' task.id %}">Edit</a>  <a class="btn btn-danger" href="{% url 'delete' task.id %}">Delete</a></td>
+
+          </tr>
+          {% endfor %}
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+
+
+
+
+
+</body>
+</html>

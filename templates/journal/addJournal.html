@@ -1,0 +1,104 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Organizer | Journal | Create</title>
+  {% include "dependencies.html" %}
+</head>
+<body>
+  <!-- Image and text -->
+  <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    {% include "nav.html" %}
+
+    <div class="row">
+      <div class="col-md">
+        <div class="card card-body">
+          <h1 class="masthead-brand text-center">Write your mind!</h1>
+
+          <table class="table">
+
+            <form class="" method="POST" action="/addJournal/">
+              {% csrf_token %}
+              <tr>
+                <h1> </h1>
+
+              </tr>
+              <tr>
+                <h1> </h1>
+
+              </tr>
+              <tr>
+                <h1> </h1>
+
+              </tr>
+              <tr>
+                <h1> </h1>
+
+              </tr>
+
+              <tr>
+                <h5 class="text-center">Description</h5>
+
+              </tr>
+
+              <tr>
+                {{form.description}}
+              </tr>
+
+              <tr>
+
+                <tr>
+                  <h1> </h1>
+
+                </tr>
+                <tr>
+                  <h1> </h1>
+
+                </tr>
+                <tr>
+                  <h5 class="text-center">Entry</h5>
+
+                </tr>
+
+
+
+                <tr>
+                  {{form.entry}}
+
+                </tr>
+
+                <tr>
+                  <h1> </h1>
+
+                </tr>
+                <tr>
+                  <h1> </h1>
+
+                </tr>
+
+              </tr>
+              <tr>
+                <td class="text-center">              <input class="btn btn-outline-primary" type="submit" name="Create Task" value="Add">
+                </td>
+
+              </tr>
+
+            </form>
+          </table>
+
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+
+
+</body>
+</html>
